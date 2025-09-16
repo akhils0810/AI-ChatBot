@@ -1,10 +1,10 @@
-# AI Chatbot - ChatGPT-like Interface
+# AI Chatbot - Gemini-powered Interface
 
 A modern, responsive AI chatbot built with FastAPI backend and React frontend, designed to be easily integrated into websites.
 
 ## Features
 
-- 🤖 **AI-Powered Conversations**: Uses OpenAI's GPT models for intelligent responses
+- 🤖 **AI-Powered Conversations**: Uses Google's Gemini models for intelligent responses
 - 💬 **Modern Chat Interface**: Clean, responsive design similar to ChatGPT
 - ⚡ **Real-time Messaging**: Fast API responses with typing indicators
 - 🎨 **Beautiful UI**: Gradient backgrounds, smooth animations, and modern styling
@@ -16,7 +16,7 @@ A modern, responsive AI chatbot built with FastAPI backend and React frontend, d
 
 ### Backend
 - **FastAPI**: Modern, fast web framework for building APIs
-- **OpenAI API**: Integration with GPT models
+- **Google Gemini API**: Integration with Gemini models via `google-generativeai`
 - **Python 3.8+**: Core programming language
 - **Uvicorn**: ASGI server for production deployment
 
@@ -32,7 +32,7 @@ A modern, responsive AI chatbot built with FastAPI backend and React frontend, d
 
 - Python 3.8 or higher
 - Node.js 16 or higher
-- OpenAI API key
+- Google Gemini API key
 
 ### 1. Clone and Setup
 
@@ -56,8 +56,8 @@ Create a `.env` file in the root directory:
 # Copy the example file
 cp env.example .env
 
-# Edit .env and add your OpenAI API key
-OPENAI_API_KEY=your_openai_api_key_here
+# Edit .env and add your Google Gemini API key
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 ### 3. Run the Application
@@ -148,7 +148,7 @@ async function sendMessage(message) {
     },
     body: JSON.stringify({
       messages: [{ role: 'user', content: message }],
-      model: 'gpt-3.5-turbo'
+      model: 'gemini-1.5-flash'
     })
   });
   
@@ -168,9 +168,9 @@ You can extract the chat components from the React app and integrate them direct
 - Customize message bubbles and animations
 
 ### AI Model
+- Default model uses Google Gemini (`gemini-1.5-flash`)
 - Change the default model in `backend/main.py`
 - Adjust temperature and max_tokens for different response styles
-- Add support for other AI providers
 
 ### Features
 - Add message persistence with a database
@@ -211,7 +211,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `OPENAI_API_KEY` | Your OpenAI API key | Yes |
+| `GEMINI_API_KEY` | Your Google Gemini API key | Yes |
 | `HOST` | Server host (default: 0.0.0.0) | No |
 | `PORT` | Server port (default: 8000) | No |
 
